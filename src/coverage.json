@@ -1,240 +1,54 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-13T04:35:16.427Z",
+  "generatedAt": "2026-02-13T05:35:29.512Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 8,
-    "implemented": 8,
+    "total": 3,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Build a responsive CraftyMini single-page marketing/landing experience that introduces the brand, showcases the main crochet product categories (Baby Booties, Hair Crochet Clips, Crochet Bow, Crochet Purse, Custom), and includes clear ordering and contact information.",
-        "status": "implemented",
+        "id": "REQ-17",
+        "summary": "Manually verify that the user-uploaded image files referenced by the UI exist in `frontend/public/assets/generated/`. If they are missing, locate the same image files in the repository root upload directory and move/copy them into `frontend/public/assets/generated/` so they are served publicly at the exact URLs used by the site.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/index.html"
+          "frontend/public/assets/generated/1770877868282~2-2.png",
+          "frontend/public/assets/generated/1770877868282~2-3.png"
         ],
-        "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/index.html"
-        ]
+        "matchedFiles": []
       },
       {
-        "id": "REQ-2",
-        "summary": "Implement a clear 'Order Now' flow: add an Order Now button that scrolls to an order form collecting Name, Phone Number, Address, Item Name/Design, Category (Baby Booties / Hair Crochet Clip / Crochet Bow / Crochet Purse / Custom), Size, Color, Quantity, and an optional Notes field.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/OrderNowForm.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/OrderNowForm.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "On order form submission, generate a mailto link to minicrafty63@gmail.com with a prefilled subject and body containing the customer’s entered details; also provide a clearly visible option to order via Instagram DM to @minicrafty.co�.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/OrderNowForm.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/OrderNowForm.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Add a 'Browse Our Collection' section that visually presents the 5 categories (Baby Booties, Hair Crochet Clips, Crochet Bows, Crochet Purses, Custom Orders) with short, descriptive copy and placeholder imagery (until real product photos are provided).",
-        "status": "implemented",
+        "id": "REQ-18",
+        "summary": "Update all frontend image `src` references (including any React component `<img src=\"...\" />` usages) so they point directly to the correct public paths for the moved images under `/assets/generated/...`, and ensure no remaining references point to missing files.",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/components/CategoryGrid.tsx",
           "frontend/src/App.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/components/CategoryGrid.tsx",
-          "frontend/src/App.tsx"
-        ]
+        "matchedFiles": []
       },
       {
-        "id": "REQ-5",
-        "summary": "Include a 'Why Choose CraftyMini' section listing: Handmade with love & care; Unique & stylish designs for all ages; Perfect gifts for birthdays, weddings, or just because; Soft, safe, and high-quality materials.",
+        "id": "REQ-19",
+        "summary": "Create and deploy Draft Version 6 after the asset placement and `src` updates are verified, and update `frontend/public/draft-version.txt` to indicate Version 6.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/WhyChooseSection.tsx",
-          "frontend/src/App.tsx"
+          "frontend/public/draft-version.txt"
         ],
         "matchedFiles": [
-          "frontend/src/components/WhyChooseSection.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Add a Contact Us section that shows the email minicrafty63@gmail.com and Instagram @minicrafty.co�, with both presented as clickable links where possible.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/ContactSection.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/ContactSection.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Establish and apply a coherent visual theme for CraftyMini (colors, typography, spacing, buttons, cards) suitable for a handmade/craft brand, and enforce it consistently across all sections without using a blue/purple primary palette.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Add the required static images to the frontend and render them from frontend/public/assets/generated (no backend image routing).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/generated/craftymini-logo.dim_512x512.png",
-          "frontend/public/assets/generated/craftymini-hero-bg.dim_1600x900.png",
-          "frontend/public/assets/generated/craftymini-cat-booties.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-clips.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-bow.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-purse.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-custom.dim_800x600.png",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/public/assets/generated/craftymini-logo.dim_512x512.png",
-          "frontend/public/assets/generated/craftymini-hero-bg.dim_1600x900.png",
-          "frontend/public/assets/generated/craftymini-cat-booties.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-clips.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-bow.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-purse.dim_800x600.png",
-          "frontend/public/assets/generated/craftymini-cat-custom.dim_800x600.png",
-          "frontend/src/App.tsx"
+          "frontend/public/draft-version.txt"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
-    "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/package.json",
-    "build-template/pnpm-lock.yaml",
-    "build-template/pnpm-workspace.yaml",
-    "build-template/scripts/prune-unused-images.js",
-    "build-template/scripts/resize-images.js",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/backend/system-idl/aaaaa-aa.did",
-    "build-template/src/frontend/canister.yaml",
-    "build-template/src/frontend/components.json",
-    "build-template/src/frontend/env.json",
-    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
-    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
-    "build-template/src/frontend/eslint.config.js",
-    "build-template/src/frontend/package.json",
-    "build-template/src/frontend/postcss.config.js",
-    "build-template/src/frontend/src/components/ui/accordion.tsx",
-    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
-    "build-template/src/frontend/src/components/ui/alert.tsx",
-    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
-    "build-template/src/frontend/src/components/ui/avatar.tsx",
-    "build-template/src/frontend/src/components/ui/badge.tsx",
-    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
-    "build-template/src/frontend/src/components/ui/button.tsx",
-    "build-template/src/frontend/src/components/ui/calendar.tsx",
-    "build-template/src/frontend/src/components/ui/card.tsx",
-    "build-template/src/frontend/src/components/ui/carousel.tsx",
-    "build-template/src/frontend/src/components/ui/chart.tsx",
-    "build-template/src/frontend/src/components/ui/checkbox.tsx",
-    "build-template/src/frontend/src/components/ui/collapsible.tsx",
-    "build-template/src/frontend/src/components/ui/command.tsx",
-    "build-template/src/frontend/src/components/ui/context-menu.tsx",
-    "build-template/src/frontend/src/components/ui/dialog.tsx",
-    "build-template/src/frontend/src/components/ui/drawer.tsx",
-    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
-    "build-template/src/frontend/src/components/ui/form.tsx",
-    "build-template/src/frontend/src/components/ui/hover-card.tsx",
-    "build-template/src/frontend/src/components/ui/input-otp.tsx",
-    "build-template/src/frontend/src/components/ui/input.tsx",
-    "build-template/src/frontend/src/components/ui/label.tsx",
-    "build-template/src/frontend/src/components/ui/menubar.tsx",
-    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
-    "build-template/src/frontend/src/components/ui/pagination.tsx",
-    "build-template/src/frontend/src/components/ui/popover.tsx",
-    "build-template/src/frontend/src/components/ui/progress.tsx",
-    "build-template/src/frontend/src/components/ui/radio-group.tsx",
-    "build-template/src/frontend/src/components/ui/resizable.tsx",
-    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
-    "build-template/src/frontend/src/components/ui/select.tsx",
-    "build-template/src/frontend/src/components/ui/separator.tsx",
-    "build-template/src/frontend/src/components/ui/sheet.tsx",
-    "build-template/src/frontend/src/components/ui/sidebar.tsx",
-    "build-template/src/frontend/src/components/ui/skeleton.tsx",
-    "build-template/src/frontend/src/components/ui/slider.tsx",
-    "build-template/src/frontend/src/components/ui/sonner.tsx",
-    "build-template/src/frontend/src/components/ui/switch.tsx",
-    "build-template/src/frontend/src/components/ui/table.tsx",
-    "build-template/src/frontend/src/components/ui/tabs.tsx",
-    "build-template/src/frontend/src/components/ui/textarea.tsx",
-    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
-    "build-template/src/frontend/src/components/ui/toggle.tsx",
-    "build-template/src/frontend/src/components/ui/tooltip.tsx",
-    "build-template/src/frontend/src/hooks/use-mobile.tsx",
-    "build-template/src/frontend/src/lib/utils.ts",
-    "build-template/src/frontend/tsconfig.json",
-    "build-template/src/frontend/vite.config.js",
-    "build-template/tsconfig.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/public/assets/generated/craftymini-cat-booties.dim_800x600.png",
-    "frontend/public/assets/generated/craftymini-cat-bow.dim_800x600.png",
-    "frontend/public/assets/generated/craftymini-cat-clips.dim_800x600.png",
-    "frontend/public/assets/generated/craftymini-cat-custom.dim_800x600.png",
-    "frontend/public/assets/generated/craftymini-cat-purse.dim_800x600.png",
-    "frontend/public/assets/generated/craftymini-hero-bg.dim_1600x900.png",
-    "frontend/public/assets/generated/craftymini-logo.dim_512x512.png",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
-    "frontend/src/components/CategoryGrid.tsx",
-    "frontend/src/components/ContactSection.tsx",
-    "frontend/src/components/OrderNowForm.tsx",
-    "frontend/src/components/WhyChooseSection.tsx",
-    "frontend/src/config.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/ui-summary.json",
-    "frontend/src/utils/StorageClient.ts",
-    "frontend/tailwind.config.js",
+    "frontend/public/draft-version.txt",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

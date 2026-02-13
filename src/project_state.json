@@ -1,11 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 13,
   "summary": "Build a simple CraftyMini online presence/landing page to showcase handmade crochet products (booties, hair clips, bows, purses, custom) and provide clear ordering instructions via email/Instagram.",
-  "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Craft brand wordmark logo with yarn/crochet motif, warm craft aesthetic (craftymini-logo.dim_512x512.png)\n- Soft textured hero background pattern (subtle yarn/fiber texture) (craftymini-hero-bg.dim_1600x900.png)\n- Product category illustration/photo-style placeholder: baby booties (craftymini-cat-booties.dim_800x600.png)\n- Product category illustration/photo-style placeholder: hair crochet clips (craftymini-cat-clips.dim_800x600.png)\n- Product category illustration/photo-style placeholder: crochet bow (craftymini-cat-bow.dim_800x600.png)\n- Product category illustration/photo-style placeholder: crochet purse (craftymini-cat-purse.dim_800x600.png)\n- Product category illustration/photo-style placeholder: custom order (generic crochet tools/materials) (craftymini-cat-custom.dim_800x600.png)",
+  "architectural_notes": [
+    "Gallery/collection images should be updated to use the user-provided uploaded asset IDs (replacing placeholders).",
+    "After moving uploaded images into `frontend/public/assets/generated`, redeploy the site (Version 5) so live URLs like `/assets/generated/...` resolve correctly.",
+    "If images are still broken, manually verify `frontend/public/assets/generated` contains the expected uploaded files; if missing, locate them in the root upload directory, move/copy them into `frontend/public/assets/generated`, then update image `src` references to point directly to the new `/assets/generated/...` paths and redeploy (Version 6)."
+  ],
+  "known_issues": [
+    "Live page is still showing broken image icons for gallery/category images (assets not resolving correctly)."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-build-a-responsive-craftymini-single-page-marketing-landing-experience-that-introduces-the-brand-showcases-the-main-crochet-product-categories-baby-booties-hair-crochet-clips-crochet-bow-crochet-purse-custom-and-includes-clear-ordering-and-contact-information",
@@ -70,6 +75,54 @@
         "REQ-8"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-5-placeholder-category-images-shown-in-the-browse-our-collection-gallery-baby-booties-hair-crochet-clips-crochet-bows-crochet-purses-custom-orders-with-the-specific-user-uploaded-images-referenced-by-the-ids-the-user-provided",
+      "title": "Replace the 5 placeholder category images shown in the \"Browse Our Collection\" gallery (Baby Booties, Hair Crochet Clips, Crochet Bows, Crochet Purses, Custom Orders) with the specific user-uploaded images referenced by the IDs the user provided.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-gallery-images-as-static-assets-under-frontend-public-assets-generated-and-update-the-categorygrid-image-paths-to-point-to-the-new-filenames-do-not-route-images-through-the-backend",
+      "title": "Add the user-uploaded gallery images as static assets under frontend/public/assets/generated and update the CategoryGrid image paths to point to the new filenames (do not route images through the backend).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-gallery-category-grid-to-use-the-newly-uploaded-images-by-changing-categorygrid-tsx-so-that-the-baby-booties-card-uses-assets-generated-1770877868282-2-2-png-and-the-hair-crochet-clips-card-uses-assets-generated-1770877868282-2-3-png-leaving-the-other-category-images-unchanged",
+      "title": "Update the gallery/category grid to use the newly uploaded images by changing CategoryGrid.tsx so that the 'Baby Booties' card uses /assets/generated/1770877868282~2-2.png and the 'Hair Crochet Clips' card uses /assets/generated/1770877868282~2-3.png, leaving the other category images unchanged.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-user-uploaded-images-are-present-in-the-repository-under-frontend-public-assets-generated-with-the-exact-filenames-used-by-the-ui-so-they-resolve-on-the-live-site-at-assets-generated-1770877868282-2-2-png-and-assets-generated-1770877868282-2-3-png",
+      "title": "Ensure the user-uploaded images are present in the repository under `frontend/public/assets/generated/` with the exact filenames used by the UI, so they resolve on the live site at `/assets/generated/1770877868282~2-2.png` and `/assets/generated/1770877868282~2-3.png`.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-and-deploy-draft-version-5-after-the-uploaded-images-are-correctly-placed-under-frontend-public-assets-generated-and-verified-to-render-on-the-live-site",
+      "title": "Create and deploy Draft Version 5 after the uploaded images are correctly placed under `frontend/public/assets/generated/` and verified to render on the live site.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-and-deploy-draft-version-6-after-the-asset-placement-and-src-updates-are-verified-and-update-frontend-public-draft-version-txt-to-indicate-version-6",
+      "title": "Create and deploy Draft Version 6 after the asset placement and `src` updates are verified, and update `frontend/public/draft-version.txt` to indicate Version 6.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -77,6 +130,58 @@
       "id": "AR-1",
       "summary": "Create a CraftyMini landing page with product categories and an 'Order Now' section (email/Instagram DM) plus contact info",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Replace current gallery/collection placeholder images with the user-uploaded images referenced by specific IDs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add the two newly uploaded images (1770877868282~2-2.png, 1770877868282~2-3.png) as static frontend assets under frontend/public/assets/generated without routing them through the backend.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add the uploaded image files as static frontend assets under `frontend/public/assets/generated` so they are available on the live site at the exact public URLs referenced by the UI: `/assets/generated/1770877868282~2-2.png` and `/assets/generated/1770877868282~2-3.png`.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Ensure the 'Baby Booties' category card in `frontend/src/components/CategoryGrid.tsx` uses the correct image path from the public generated assets folder: `/assets/generated/1770877868282~2-2.png`.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Manually fix broken images by verifying/moving uploaded files into `frontend/public/assets/generated`, updating image `src` references to the correct public paths, and deploy Version 6.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Manually verify that the user-uploaded image files referenced by the UI exist in `frontend/public/assets/generated/`. If they are missing, locate the same image files in the repository root upload directory and move/copy them into `frontend/public/assets/generated/` so they are served publicly at the exact URLs used by the site.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update all frontend image `src` references (including any React component `<img src=\"...\" />` usages) so they point directly to the correct public paths for the moved images under `/assets/generated/...`, and ensure no remaining references point to missing files.",
+      "reqIds": [
+        "REQ-18"
+      ],
       "status": "pending"
     }
   ],

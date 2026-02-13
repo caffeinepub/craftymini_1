@@ -1,177 +1,72 @@
 {
   "kind": "build_request",
-  "title": "Create CraftyMini landing page with product categories and Order Now form (email/Instagram)",
-  "priority": "normal",
+  "title": "Manually fix broken gallery images and deploy Draft Version 6",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Build a responsive CraftyMini single-page marketing/landing experience that introduces the brand, showcases the main crochet product categories (Baby Booties, Hair Crochet Clips, Crochet Bow, Crochet Purse, Custom), and includes clear ordering and contact information.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2",
-          "msg-4"
-        ],
-        "quotes": [
-          "Welcome to CraftyMini! 🎀 Handmade crochet magic for everyone! From cozy outfits to stylish purses, baby booties, hair clips, bows, and unique accessories — all crafted with love.",
-          "Yah create"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Landing page includes sections: Hero/intro, Browse Our Collection (category grid), Why Choose CraftyMini, Order Now, Contact Us, Footer.",
-        "All user-facing text is in English.",
-        "Layout is responsive for mobile, tablet, and desktop (no horizontal scrolling; cards and form reflow appropriately)."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Implement a clear 'Order Now' flow: add an Order Now button that scrolls to an order form collecting Name, Phone Number, Address, Item Name/Design, Category (Baby Booties / Hair Crochet Clip / Crochet Bow / Crochet Purse / Custom), Size, Color, Quantity, and an optional Notes field.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "[ORDER NOW] – Click, Choose, Fill Your Details, and Get Your Handmade Crochet Item! 🎀",
-          "Customer Details: Name: Phone Number: Address: Order Details: Item Name / Design: Category: Baby Booties / Hair Crochet Clip / Crochet Bow / Crochet Purse / Custom Size / Color / Quantity:"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking Order Now scrolls/focuses to the order form section.",
-        "Order form contains all fields listed in the requirement with appropriate input types (e.g., phone input, quantity numeric).",
-        "Category field is a select/dropdown with the exact options: Baby Booties, Hair Crochet Clip, Crochet Bow, Crochet Purse, Custom.",
-        "Basic validation: required fields cannot be empty; quantity must be >= 1."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "On order form submission, generate a mailto link to minicrafty63@gmail.com with a prefilled subject and body containing the customer’s entered details; also provide a clearly visible option to order via Instagram DM to @minicrafty.co�.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Send an email to minicrafty63@gmail.com OR DM on Instagram @minicrafty.co� with the following details:"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Submitting the form opens (or provides a button to open) the user’s email client via mailto: addressed to minicrafty63@gmail.com with a prefilled body including all collected fields.",
-        "The page includes an Instagram contact link/CTA that displays the handle exactly as provided: @minicrafty.co�.",
-        "If mailto cannot be opened, the UI still displays the email address and the generated message body for manual copy/paste."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Add a 'Browse Our Collection' section that visually presents the 5 categories (Baby Booties, Hair Crochet Clips, Crochet Bows, Crochet Purses, Custom Orders) with short, descriptive copy and placeholder imagery (until real product photos are provided).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "🛒 Browse Our Collection: 📸 Baby Booties: (Insert photo of baby booties here) 📸 Hair Crochet Clips: (Insert photo of hair crochet clips here) 📸 Crochet Bow: (Insert photo of crochet bows here) 📸 Crochet Purse: (Insert photo of crochet purses here)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A grid/list of 5 category cards is shown with consistent styling and readable labels.",
-        "Each category card shows an image area using provided/generated static assets (not fetched from backend).",
-        "Cards are accessible (alt text present; sufficient contrast)."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Include a 'Why Choose CraftyMini' section listing: Handmade with love & care; Unique & stylish designs for all ages; Perfect gifts for birthdays, weddings, or just because; Soft, safe, and high-quality materials.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "Why Choose CraftyMini? Handmade with ❤️ love & care Unique & stylish designs for all ages Perfect gifts for birthdays, weddings, or just because Soft, safe, and high-quality materials"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All four bullet points appear on the page in a clearly readable section.",
-        "Section is visually distinct from other sections and remains responsive."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Add a Contact Us section that shows the email minicrafty63@gmail.com and Instagram @minicrafty.co�, with both presented as clickable links where possible.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "💌 Contact Us: Email: minicrafty63@gmail.com Instagram: @minicrafty.co�"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Email is clickable (mailto) and Instagram is clickable (external link).",
-        "Contact info is also readable as plain text (in case linking is blocked)."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Establish and apply a coherent visual theme for CraftyMini (colors, typography, spacing, buttons, cards) suitable for a handmade/craft brand, and enforce it consistently across all sections without using a blue/purple primary palette.",
+      "id": "REQ-17",
+      "text": "Manually verify that the user-uploaded image files referenced by the UI exist in `frontend/public/assets/generated/`. If they are missing, locate the same image files in the repository root upload directory and move/copy them into `frontend/public/assets/generated/` so they are served publicly at the exact URLs used by the site.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Yah create"
+          "Please manually check the frontend/public/assets/generated folder. If my images are not there, find them in the root upload directory and move them."
         ]
       },
       "acceptanceCriteria": [
-        "Theme is applied consistently to headings, body text, buttons, form controls, and cards.",
-        "Primary palette is not blue/purple (unless used only as a minor accent).",
-        "UI looks intentional and cohesive on both mobile and desktop."
+        "`frontend/public/assets/generated/1770877868282~2-2.png` exists in the repository and is readable as a static asset.",
+        "`frontend/public/assets/generated/1770877868282~2-3.png` exists in the repository and is readable as a static asset.",
+        "Visiting `/assets/generated/1770877868282~2-2.png` and `/assets/generated/1770877868282~2-3.png` on the deployed site returns the image content (not a 404)."
       ]
     },
     {
-      "id": "REQ-8",
-      "text": "Add the required static images to the frontend and render them from frontend/public/assets/generated (no backend image routing).",
+      "id": "REQ-18",
+      "text": "Update all frontend image `src` references (including any React component `<img src=\"...\" />` usages) so they point directly to the correct public paths for the moved images under `/assets/generated/...`, and ensure no remaining references point to missing files.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-4"
         ],
         "quotes": [
-          "(Insert photo of baby booties here)",
-          "Handmade crochet magic for everyone!"
+          "Then, update the src tags in my HTML to point directly to the new file paths."
         ]
       },
       "acceptanceCriteria": [
-        "All required images listed in imageRequirements.required exist under frontend/public/assets/generated and are referenced by the UI.",
-        "Images are optimized for web display (reasonable file sizes) and include alt text where applicable."
+        "`frontend/src/components/CategoryGrid.tsx` image paths resolve to valid public URLs under `/assets/generated/` for Baby Booties and Hair Crochet Clips (and any other images referenced by the page).",
+        "On the deployed site, the category grid shows actual images (no broken image icons) for Baby Booties and Hair Crochet Clips.",
+        "There are no console errors in the browser related to failing to load images from `/assets/generated/` (404/ERR_NAME_NOT_RESOLVED)."
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Create and deploy Draft Version 6 after the asset placement and `src` updates are verified, and update `frontend/public/draft-version.txt` to indicate Version 6.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Give me a Version 6 once this is fixed."
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/public/draft-version.txt` contains `Draft Version 6`.",
+        "Draft Version 6 is deployed and the live site renders the updated images correctly."
       ]
     }
   ],
   "constraints": [
-    "Frontend must not modify files under frontend/src/components/ui or other immutable paths listed by the platform.",
-    "Use only Internet Identity if authentication is later added; no third-party auth integrations (not required for this build).",
-    "No external databases or third-party backend services."
+    "Do not route images through the backend; images must be served from `frontend/public/assets/generated` as static assets.",
+    "Do not edit any files under `frontend/src/components/ui` or other immutable paths listed in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Implementing online payments or payment processing.",
-    "Implementing real-time chat/DM integration with Instagram.",
-    "Building a full e-commerce cart/checkout system.",
-    "Uploading or managing product inventory via an admin panel.",
-    "Storing orders on-chain in the backend (orders are routed via email/Instagram as requested)."
+    "Do not implement new backend logic or add new backend endpoints.",
+    "Do not redesign the page layout or change non-image content beyond what is necessary to fix broken image paths."
   ],
   "imageRequirements": {
-    "required": [
-      "Craft brand wordmark logo with yarn/crochet motif, warm craft aesthetic (craftymini-logo.dim_512x512.png)",
-      "Soft textured hero background pattern (subtle yarn/fiber texture) (craftymini-hero-bg.dim_1600x900.png)",
-      "Product category illustration/photo-style placeholder: baby booties (craftymini-cat-booties.dim_800x600.png)",
-      "Product category illustration/photo-style placeholder: hair crochet clips (craftymini-cat-clips.dim_800x600.png)",
-      "Product category illustration/photo-style placeholder: crochet bow (craftymini-cat-bow.dim_800x600.png)",
-      "Product category illustration/photo-style placeholder: crochet purse (craftymini-cat-purse.dim_800x600.png)",
-      "Product category illustration/photo-style placeholder: custom order (generic crochet tools/materials) (craftymini-cat-custom.dim_800x600.png)"
-    ],
+    "required": [],
     "edits": []
   },
   "userProfileUpdate": {

@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-build-a-responsive-craftymini-single-page-marketing-landing-experience-that-introduces-the-brand-showcases-the-main-crochet-product-categories-baby-booties-hair-crochet-clips-crochet-bow-crochet-purse-custom-and-includes-clear-ordering-and-contact-information",
-      "featureTitle": "Build a responsive CraftyMini single-page marketing/landing experience that introduces the brand, showcases the main crochet product categories (Baby Booties, Hair Crochet Clips, Crochet Bow, Crochet Purse, Custom), and includes clear ordering and contact information.",
+      "featureId": "feature-create-and-deploy-draft-version-6-after-the-asset-placement-and-src-updates-are-verified-and-update-frontend-public-draft-version-txt-to-indicate-version-6",
+      "featureTitle": "Create and deploy Draft Version 6 after the asset placement and `src` updates are verified, and update `frontend/public/draft-version.txt` to indicate Version 6.",
       "files": [
-        "frontend/index.html",
-        "frontend/src/App.tsx"
+        "frontend/public/draft-version.txt"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,140 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-a-clear-order-now-flow-add-an-order-now-button-that-scrolls-to-an-order-form-collecting-name-phone-number-address-item-name-design-category-baby-booties-hair-crochet-clip-crochet-bow-crochet-purse-custom-size-color-quantity-and-an-optional-notes-field",
-      "featureTitle": "Implement a clear 'Order Now' flow: add an Order Now button that scrolls to an order form collecting Name, Phone Number, Address, Item Name/Design, Category (Baby Booties / Hair Crochet Clip / Crochet Bow / Crochet Purse / Custom), Size, Color, Quantity, and an optional Notes field.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/OrderNowForm.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-on-order-form-submission-generate-a-mailto-link-to-minicrafty63-gmail-com-with-a-prefilled-subject-and-body-containing-the-customer-s-entered-details-also-provide-a-clearly-visible-option-to-order-via-instagram-dm-to-minicrafty-co",
-      "featureTitle": "On order form submission, generate a mailto link to minicrafty63@gmail.com with a prefilled subject and body containing the customer’s entered details; also provide a clearly visible option to order via Instagram DM to @minicrafty.co�.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/OrderNowForm.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-browse-our-collection-section-that-visually-presents-the-5-categories-baby-booties-hair-crochet-clips-crochet-bows-crochet-purses-custom-orders-with-short-descriptive-copy-and-placeholder-imagery-until-real-product-photos-are-provided",
-      "featureTitle": "Add a 'Browse Our Collection' section that visually presents the 5 categories (Baby Booties, Hair Crochet Clips, Crochet Bows, Crochet Purses, Custom Orders) with short, descriptive copy and placeholder imagery (until real product photos are provided).",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/CategoryGrid.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-include-a-why-choose-craftymini-section-listing-handmade-with-love-care-unique-stylish-designs-for-all-ages-perfect-gifts-for-birthdays-weddings-or-just-because-soft-safe-and-high-quality-materials",
-      "featureTitle": "Include a 'Why Choose CraftyMini' section listing: Handmade with love & care; Unique & stylish designs for all ages; Perfect gifts for birthdays, weddings, or just because; Soft, safe, and high-quality materials.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/WhyChooseSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-contact-us-section-that-shows-the-email-minicrafty63-gmail-com-and-instagram-minicrafty-co-with-both-presented-as-clickable-links-where-possible",
-      "featureTitle": "Add a Contact Us section that shows the email minicrafty63@gmail.com and Instagram @minicrafty.co�, with both presented as clickable links where possible.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/ContactSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-establish-and-apply-a-coherent-visual-theme-for-craftymini-colors-typography-spacing-buttons-cards-suitable-for-a-handmade-craft-brand-and-enforce-it-consistently-across-all-sections-without-using-a-blue-purple-primary-palette",
-      "featureTitle": "Establish and apply a coherent visual theme for CraftyMini (colors, typography, spacing, buttons, cards) suitable for a handmade/craft brand, and enforce it consistently across all sections without using a blue/purple primary palette.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-the-required-static-images-to-the-frontend-and-render-them-from-frontend-public-assets-generated-no-backend-image-routing",
-      "featureTitle": "Add the required static images to the frontend and render them from frontend/public/assets/generated (no backend image routing).",
-      "files": [
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
+        "REQ-19"
       ],
       "confidence": "high"
     }

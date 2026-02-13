@@ -1,64 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-13T04:35:16.424Z",
-  "summary": "Diff adds a CraftyMini single-page React landing layout with hero, collection grid, why-choose section, order form logic (mailto generation + validation), contact section, and a warm craft-themed Tailwind/CSS setup. It also introduces unused Internet Identity/auth + actor hooks and an empty backend canister. Some acceptance criteria cannot be verified due to truncation and missing evidence for static image assets.",
+  "generatedAt": "2026-02-13T05:35:29.510Z",
+  "summary": "Only `frontend/public/draft-version.txt` was clearly updated to Draft Version 6. The diff summary does not show actual addition/movement of the required image assets into `frontend/public/assets/generated/`, nor does it show any concrete update to `frontend/src/components/CategoryGrid.tsx` image `src` references; those are only mentioned inside `frontend-file-summaries.txt` without corresponding file diffs.",
   "missing_requirements": [
     {
-      "id": "REQ-3",
-      "requirement": "If mailto cannot be opened, the UI still displays the email address and the generated message body for manual copy/paste.",
-      "reason": "Order form code sets a `showMessage` state after attempting `window.location.href = mailtoLink`, but the diff excerpt does not include any rendered fallback UI that shows the email address and generated body for copy/paste (only a clipboard-copy function is shown).",
+      "id": "REQ-17",
+      "requirement": "Ensure the user-uploaded images referenced by the UI exist under `frontend/public/assets/generated/` (copy/move from root upload directory if missing) so they are served at the exact URLs used by the site, specifically including `1770877868282~2-2.png` and `1770877868282~2-3.png`.",
+      "reason": "The diff reports \"Added: 0\" and does not include any actual file changes for the PNG assets under `frontend/public/assets/generated/`. The only evidence of these assets is a textual mention inside `frontend-file-summaries.txt`, which is not sufficient to confirm the files were actually added/moved into the repository at the required paths.",
       "evidence": [
-        "frontend/src/components/OrderNowForm.tsx (truncated)"
+        "frontend-file-summaries.txt"
       ]
     },
     {
-      "id": "REQ-8",
-      "requirement": "Add the required static images under frontend/public/assets/generated and reference them from the UI.",
-      "reason": "UI references images at /assets/generated/*.png, but the diff summary does not show any added files under frontend/public/assets/generated (only code files were added).",
+      "id": "REQ-18",
+      "requirement": "Update all frontend image `src` references (including `frontend/src/components/CategoryGrid.tsx`) to point directly to `/assets/generated/...` paths for the moved images, with no remaining references to missing files.",
+      "reason": "No diff content is provided for `frontend/src/components/CategoryGrid.tsx` (and it is not listed among modified files). The only mention of updated images is in `frontend-file-summaries.txt`, which does not prove the code was changed.",
       "evidence": [
-        "frontend/src/App.tsx (truncated)",
-        "frontend/src/components/CategoryGrid.tsx"
+        "frontend-file-summaries.txt"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Internet Identity authentication provider/hooks and actor creation with react-query (including anonymous/authenticated actor switching).",
-      "reason": "BuildRequest explicitly says authentication is not required for this build; these hooks and providers are added anyway.",
+      "description": "Updated/maintained project metadata/state tracking in `project_state.json`.",
+      "reason": "The BuildRequest focuses on fixing broken gallery images and updating the draft version marker; it does not request changes to `project_state.json`.",
       "evidence": [
-        "frontend/src/main.tsx",
-        "frontend/src/hooks/useInternetIdentity.ts",
-        "frontend/src/hooks/useActor.ts"
+        "project_state.json"
       ]
     },
     {
-      "description": "Added backend canister file (empty Motoko actor).",
-      "reason": "No backend functionality was requested (orders are routed via email/Instagram; no external DB/services). Adding a backend canister is not part of stated requirements.",
+      "description": "Updated `frontend-file-summaries.txt` to describe broad frontend components and assets beyond the requested image-path fix (e.g., App layout, Tailwind config, sections/forms).",
+      "reason": "The BuildRequest does not request updating this summary file; it is not required to satisfy REQ-17/18/19 and introduces unrelated descriptive changes.",
       "evidence": [
-        "backend/main.mo",
-        "frontend/src/hooks/useQueries.ts"
+        "frontend-file-summaries.txt"
       ]
     }
   ],
-  "confidence": 0.68,
+  "confidence": 0.74,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/CategoryGrid.tsx",
-    "frontend/src/components/ContactSection.tsx",
-    "frontend/src/components/OrderNowForm.tsx",
-    "frontend/src/components/WhyChooseSection.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/tailwind.config.js",
+    "frontend/public/draft-version.txt",
     "project_state.json"
   ]
 }
