@@ -1,0 +1,64 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-13T04:35:16.424Z",
+  "summary": "Diff adds a CraftyMini single-page React landing layout with hero, collection grid, why-choose section, order form logic (mailto generation + validation), contact section, and a warm craft-themed Tailwind/CSS setup. It also introduces unused Internet Identity/auth + actor hooks and an empty backend canister. Some acceptance criteria cannot be verified due to truncation and missing evidence for static image assets.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "If mailto cannot be opened, the UI still displays the email address and the generated message body for manual copy/paste.",
+      "reason": "Order form code sets a `showMessage` state after attempting `window.location.href = mailtoLink`, but the diff excerpt does not include any rendered fallback UI that shows the email address and generated body for copy/paste (only a clipboard-copy function is shown).",
+      "evidence": [
+        "frontend/src/components/OrderNowForm.tsx (truncated)"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "Add the required static images under frontend/public/assets/generated and reference them from the UI.",
+      "reason": "UI references images at /assets/generated/*.png, but the diff summary does not show any added files under frontend/public/assets/generated (only code files were added).",
+      "evidence": [
+        "frontend/src/App.tsx (truncated)",
+        "frontend/src/components/CategoryGrid.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication provider/hooks and actor creation with react-query (including anonymous/authenticated actor switching).",
+      "reason": "BuildRequest explicitly says authentication is not required for this build; these hooks and providers are added anyway.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Added backend canister file (empty Motoko actor).",
+      "reason": "No backend functionality was requested (orders are routed via email/Instagram; no external DB/services). Adding a backend canister is not part of stated requirements.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CategoryGrid.tsx",
+    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/OrderNowForm.tsx",
+    "frontend/src/components/WhyChooseSection.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

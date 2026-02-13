@@ -1,0 +1,208 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "CraftyMini single-page landing with category grid and Order Now mailto/Instagram flow",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a responsive single-page CraftyMini landing layout with required sections and clear ordering/contact info.",
+      "acceptanceCriteria": [
+        "Landing page includes sections: Hero/intro, Browse Our Collection (category grid), Why Choose CraftyMini, Order Now, Contact Us, Footer.",
+        "All user-facing text is in English.",
+        "Layout is responsive for mobile, tablet, and desktop (no horizontal scrolling; cards and form reflow appropriately)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement the single-page landing experience and section layout (Hero, Browse, Why Choose, Order Now, Contact, Footer) with responsive structure and in-page navigation. Use shadcn-ui components (e.g., Card/Button) to provide consistent cards/CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Ensure page metadata supports the landing experience (title already set to CraftyMini; add/adjust description/meta as needed) and confirm language remains English."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add an Order Now CTA that scrolls to a validated order form containing all required fields and exact category options.",
+      "acceptanceCriteria": [
+        "Clicking Order Now scrolls/focuses to the order form section.",
+        "Order form contains all fields listed in the requirement with appropriate input types (e.g., phone input, quantity numeric).",
+        "Category field is a select/dropdown with the exact options: Baby Booties, Hair Crochet Clip, Crochet Bow, Crochet Purse, Custom.",
+        "Basic validation: required fields cannot be empty; quantity must be >= 1."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/OrderNowForm.tsx",
+          "operation": "create",
+          "description": "Create the Order Now form component with required fields, basic client-side validation, and a scroll/focus target id. Use shadcn-ui form-related components (e.g., Input, Textarea, Select, Button) to implement accessible controls and consistent styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Order Now button/CTA to smoothly scroll and focus the Order Now form section (e.g., using refs/element id) and ensure responsive reflow of the form area. Use shadcn-ui Button for the CTA. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On form submit, generate a mailto draft for minicrafty63@gmail.com and provide an Instagram DM ordering option with fallback copy/paste content.",
+      "acceptanceCriteria": [
+        "Submitting the form opens (or provides a button to open) the user’s email client via mailto: addressed to minicrafty63@gmail.com with a prefilled body including all collected fields.",
+        "The page includes an Instagram contact link/CTA that displays the handle exactly as provided: @minicrafty.co�.",
+        "If mailto cannot be opened, the UI still displays the email address and the generated message body for manual copy/paste."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/OrderNowForm.tsx",
+          "operation": "modify",
+          "description": "Add mailto generation (subject + body with all collected fields) on submission, plus a visible fallback area showing minicrafty63@gmail.com and the generated message body with a copy-to-clipboard action. Include an Instagram DM CTA that displays the handle exactly as '@minicrafty.co�' while linking externally to the closest valid Instagram profile URL. Use shadcn-ui Button/Textarea (or similar) for CTA and message display. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure the Order Now section includes a clearly visible Instagram ordering option near the form and that the mailto/fallback UI is discoverable and readable on mobile and desktop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add a Browse Our Collection section with five category cards, descriptive copy, and static placeholder imagery rendered from local generated assets.",
+      "acceptanceCriteria": [
+        "A grid/list of 5 category cards is shown with consistent styling and readable labels.",
+        "Each category card shows an image area using provided/generated static assets (not fetched from backend).",
+        "Cards are accessible (alt text present; sufficient contrast)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CategoryGrid.tsx",
+          "operation": "create",
+          "description": "Create a responsive category grid component with 5 cards (Baby Booties, Hair Crochet Clips, Crochet Bows, Crochet Purses, Custom Orders), each with short descriptive text and an <img> referencing the generated static assets under frontend/public/assets/generated. Use shadcn-ui Card for consistent styling and accessibility. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the CategoryGrid into the 'Browse Our Collection' section and ensure it is reachable via in-page navigation and remains responsive (single-column on small screens, multi-column on larger screens)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add a Why Choose CraftyMini section with the four specified bullet points and distinct styling.",
+      "acceptanceCriteria": [
+        "All four bullet points appear on the page in a clearly readable section.",
+        "Section is visually distinct from other sections and remains responsive."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhyChooseSection.tsx",
+          "operation": "create",
+          "description": "Implement the 'Why Choose CraftyMini' section with the four required bullet points and responsive spacing/typography. Use shadcn-ui Card (or similar) for a visually distinct container when appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add the WhyChooseSection to the landing page in the correct order and ensure visual separation between adjacent sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add a Contact Us section with clickable mailto and Instagram links, while keeping contact info readable as plain text.",
+      "acceptanceCriteria": [
+        "Email is clickable (mailto) and Instagram is clickable (external link).",
+        "Contact info is also readable as plain text (in case linking is blocked)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "create",
+          "description": "Create a Contact Us section that displays minicrafty63@gmail.com and '@minicrafty.co�' as plain text plus clickable links (mailto and external Instagram link). Ensure accessible link labels and focus styles. Use shadcn-ui Button for contact CTAs if used. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ContactSection into the page and ensure it is included near the end, before the footer, with responsive layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Establish and apply a cohesive warm handmade/craft theme (non blue/purple primary) across typography, spacing, buttons, cards, and form controls.",
+      "acceptanceCriteria": [
+        "Theme is applied consistently to headings, body text, buttons, form controls, and cards.",
+        "Primary palette is not blue/purple (unless used only as a minor accent).",
+        "UI looks intentional and cohesive on both mobile and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global CraftyMini theme tokens (CSS variables used by Tailwind/shadcn styling), typography defaults, and base element styles with a warm craft palette (avoid blue/purple as primary). Ensure consistent spacing and prevent horizontal overflow."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions (if needed) to support the CraftyMini warm palette and consistent radius/shadow/typography across sections, while keeping shadcn-compatible tokens intact."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply consistent layout primitives and section styling (typography, button variants, card spacing) so the theme is visually cohesive across Hero, grid cards, form controls, and footer. Use shadcn-ui components to standardize UI elements. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add required generated static images under frontend/public/assets/generated and reference them from the UI with alt text.",
+      "acceptanceCriteria": [
+        "All required images listed in imageRequirements.required exist under frontend/public/assets/generated and are referenced by the UI.",
+        "Images are optimized for web display (reasonable file sizes) and include alt text where applicable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/craftymini-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-logo.dim_512x512.png (Craft brand wordmark logo with yarn/crochet motif)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-hero-bg.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-hero-bg.dim_1600x900.png (Soft textured hero background pattern)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-cat-booties.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-cat-booties.dim_800x600.png (Product category placeholder: baby booties)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-cat-clips.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-cat-clips.dim_800x600.png (Product category placeholder: hair crochet clips)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-cat-bow.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-cat-bow.dim_800x600.png (Product category placeholder: crochet bow)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-cat-purse.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-cat-purse.dim_800x600.png (Product category placeholder: crochet purse)."
+        },
+        {
+          "path": "frontend/public/assets/generated/craftymini-cat-custom.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated image asset: frontend/public/assets/generated/craftymini-cat-custom.dim_800x600.png (Product category placeholder: custom order)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference the generated assets in the Hero (logo + background) and in the category cards (five category images), ensuring each image has appropriate alt text and is loaded as a static public asset (no backend routing)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "frontend/src/App.tsx": "Main application component with complete single-page landing layout including hero, category grid, why choose section, order form, contact section, and footer with smooth scroll navigation.",
+  "frontend/src/components/CategoryGrid.tsx": "Displays a responsive grid of five product category cards (Baby Booties, Hair Clips, Bows, Purses, Custom) with images and descriptions.",
+  "frontend/src/components/WhyChooseSection.tsx": "Renders four feature cards highlighting CraftyMini's value propositions with icons and descriptions.",
+  "frontend/src/components/OrderNowForm.tsx": "Complete order form with validation, mailto generation, copy-to-clipboard fallback, and Instagram ordering option.",
+  "frontend/src/components/ContactSection.tsx": "Contact information card displaying email and Instagram with clickable links.",
+  "frontend/src/index.css": "Global styles with warm craft-themed OKLCH color palette (peachy coral primary), typography, and smooth scrolling.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended warm color palette, custom fonts (Inter, Poppins), and consistent design tokens.",
+  "frontend/index.html": "HTML entry point with updated meta description and Google Fonts preload for Inter and Poppins.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as all functionality is client-side (no backend queries needed)."
+}
